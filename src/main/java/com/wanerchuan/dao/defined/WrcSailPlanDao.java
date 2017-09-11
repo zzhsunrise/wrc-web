@@ -1,7 +1,6 @@
 package com.wanerchuan.dao.defined;
 
 import com.wanerchuan.domain.defined.Page;
-import com.wanerchuan.domain.defined.WrcAirrouteVO;
 import com.wanerchuan.domain.generation.WrcAirrouteFeatureDetail;
 import com.wanerchuan.domain.generation.WrcAirrouteFeeDetail;
 import com.wanerchuan.domain.generation.WrcAirrouteFlowDetail;
@@ -19,11 +18,9 @@ public interface WrcSailPlanDao {
     List<WrcAirrouteInfo> getSailPlanList(Page page);
     int queryPlanNum(Page page);
 
-    WrcAirrouteVO getSailPlanInfo(String id);
-
     WrcAirrouteFeeDetail getFeeInfo(String airrouteId);
 
-    WrcAirrouteFeatureDetail getFeatureInfo(String airrouteId);
+    List<WrcAirrouteFeatureDetail> getFeatureInfo(String airrouteId);
 
     List<WrcAirrouteFlowDetail> getFlowList(String airrouteId);
 }

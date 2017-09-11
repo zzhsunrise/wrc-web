@@ -1,7 +1,6 @@
 package com.wanerchuan.service;
 
 import com.wanerchuan.domain.defined.Page;
-import com.wanerchuan.domain.defined.WrcAirrouteVO;
 import com.wanerchuan.domain.generation.WrcAirrouteFeatureDetail;
 import com.wanerchuan.domain.generation.WrcAirrouteFeeDetail;
 import com.wanerchuan.domain.generation.WrcAirrouteFlowDetail;
@@ -23,8 +22,6 @@ public interface WrcSailPlanService {
      * */
     int queryPlanNum(Page page);
 
-    WrcAirrouteVO getSailPlanInfo(String id);
-
     /**
      *info表
      */
@@ -38,7 +35,7 @@ public interface WrcSailPlanService {
     /**
      * feature表
      * */
-    WrcAirrouteFeatureDetail getFeatureInfo(String airrouteId);
+    List<WrcAirrouteFeatureDetail> getFeatureInfo(String airrouteId);
 
     /**
      * flow表

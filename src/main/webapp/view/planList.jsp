@@ -77,7 +77,7 @@
   <div class="free">
     <div class="free-main">
       <c:forEach var="sailPlan" items="${sailPlanList}">
-      <a href="" target="_blank" class="free-list new">
+      <a href="<%=path%>/sail/detail?id=${sailPlan.id}" target="_blank" class="free-list new">
         <img src="<%=basePath%>/images/planList/data/data12.jpg" alt="">
         <p>【${sailPlan.destinationId}】${sailPlan.airrouteName}</p>
         <div class="price">

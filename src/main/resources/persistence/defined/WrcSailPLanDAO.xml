@@ -14,9 +14,63 @@
         <result column="album_id" jdbcType="VARCHAR" property="albumId" />
         <result column="key_word" jdbcType="VARCHAR" property="keyWord" />
     </resultMap>
+    <resultMap id="FeeResultMap" type="com.wanerchuan.domain.generation.WrcAirrouteFeeDetail">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="modified_by" jdbcType="VARCHAR" property="modifiedBy" />
+        <result column="fee_total" jdbcType="VARCHAR" property="feeTotal" />
+        <result column="total_remark" jdbcType="VARCHAR" property="totalRemark" />
+        <result column="fee_include" jdbcType="VARCHAR" property="feeInclude" />
+        <result column="include_remark" jdbcType="VARCHAR" property="includeRemark" />
+        <result column="fee_have_not" jdbcType="VARCHAR" property="feeHaveNot" />
+        <result column="have_not_remark" jdbcType="VARCHAR" property="haveNotRemark" />
+        <result column="refund_context" jdbcType="VARCHAR" property="refundContext" />
+        <result column="airroute_id" jdbcType="VARCHAR" property="airrouteId" />
+        <result column="album_id" jdbcType="VARCHAR" property="albumId" />
+    </resultMap>
+    <resultMap id="FeatureResultMap" type="com.wanerchuan.domain.generation.WrcAirrouteFeatureDetail">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="modified_by" jdbcType="VARCHAR" property="modifiedBy" />
+        <result column="feature_name" jdbcType="VARCHAR" property="featureName" />
+        <result column="feature_context" jdbcType="VARCHAR" property="featureContext" />
+        <result column="album_id" jdbcType="VARCHAR" property="albumId" />
+        <result column="airroute_id" jdbcType="VARCHAR" property="airrouteId" />
+    </resultMap>
+    <resultMap id="FlowResultMap" type="com.wanerchuan.domain.generation.WrcAirrouteFlowDetail">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="modified_by" jdbcType="VARCHAR" property="modifiedBy" />
+        <result column="flow_name" jdbcType="VARCHAR" property="flowName" />
+        <result column="flow_context" jdbcType="VARCHAR" property="flowContext" />
+        <result column="flow_order" jdbcType="INTEGER" property="flowOrder" />
+        <result column="airroute_id" jdbcType="VARCHAR" property="airrouteId" />
+        <result column="include_food" jdbcType="VARCHAR" property="includeFood" />
+        <result column="include_rest" jdbcType="VARCHAR" property="includeRest" />
+        <result column="album_id" jdbcType="VARCHAR" property="albumId" />
+    </resultMap>
+    <sql id="Flow_Column_List">
+        id, gmt_created, gmt_modified, created_by, modified_by, flow_name, flow_context,
+        flow_order, airroute_id, include_food, include_rest, album_id
+    </sql>
+    <sql id="Feature_Column_List">
+        id, gmt_created, gmt_modified, created_by, modified_by, feature_name, feature_context,
+        album_id, airroute_id
+    </sql>
     <sql id="Base_Column_List">
         id, gmt_created, gmt_modified, created_by, modified_by, airroute_name, airroute_intro,
         destination_id, area_code,album_id,key_word
+    </sql>
+    <sql id="Fee_Column_List">
+        id, gmt_created, gmt_modified, created_by, modified_by, fee_total, total_remark,
+        fee_include, include_remark, fee_have_not, have_not_remark, refund_context, airroute_id,
+        album_id
     </sql>
     <select id="getSailPlanList" resultMap="BaseResultMap" parameterType="com.wanerchuan.domain.defined.Page">
       select
@@ -42,15 +96,19 @@
         AND destination_id = #{destId}
         </if>
     </select>
-    <select id="getSailPlanInfo" resultType="com.wanerchuan.domain.defined.WrcAirrouteVO">
+    <select id="getFeeInfo" resultMap="FeeResultMap">
+        select
+         <include refid="Fee_Column_List"/>
+         from wrc_airroute_fee_detail where airroute_id=#{airrouteId}
     </select>
-    <select id="getFeeInfo" resultType="com.wanerchuan.domain.generation.WrcAirrouteFeeDetail">
-        select * from wrc_airroute_fee_detail where airroute_id=#{airrouteId}
+    <select id="getFeatureInfo" resultMap="FeatureResultMap">
+        SELECT
+        <include refid="Feature_Column_List"/>
+        from wrc_airroute_feature_detail where airroute_id =#{airrouteId}
     </select>
-    <select id="getFeatureInfo" resultType="com.wanerchuan.domain.generation.WrcAirrouteFeatureDetail">
-        SELECT * from wrc_airroute_feature_detail where airroute_id =#{airrouteId}
-    </select>
-    <select id="getFlowList" resultType="com.wanerchuan.domain.generation.WrcAirrouteFlowDetail">
-        SELECT * from wrc_airroute_flow_detail where airroute_id=#{airrouteId}
+    <select id="getFlowList" resultMap="FlowResultMap">
+        SELECT
+        <include refid="Flow_Column_List" />
+        from wrc_airroute_flow_detail where airroute_id=#{airrouteId}
     </select>
 </mapper>

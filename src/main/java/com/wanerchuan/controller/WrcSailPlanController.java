@@ -1,10 +1,8 @@
 package com.wanerchuan.controller;
 
 import com.wanerchuan.domain.defined.Page;
-import com.wanerchuan.domain.generation.WrcAirrouteFeatureDetail;
-import com.wanerchuan.domain.generation.WrcAirrouteFeeDetail;
-import com.wanerchuan.domain.generation.WrcAirrouteFlowDetail;
-import com.wanerchuan.domain.generation.WrcAirrouteInfo;
+import com.wanerchuan.domain.generation.*;
+import com.wanerchuan.service.WrcDestinationService;
 import com.wanerchuan.service.WrcSailPlanService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +22,8 @@ public class WrcSailPlanController {
 
     @Autowired
     WrcSailPlanService wrcSailPlanService;
+    @Autowired
+    WrcDestinationService wrcDestinationService;
 
     private int currentPage = 1;
 
@@ -58,13 +58,24 @@ public class WrcSailPlanController {
         ModelAndView mav = new ModelAndView();
         String id = request.getParameter("id");
 
-        WrcAirrouteInfo wrcAirrouteInfo =  wrcSailPlanService.getSailPlanInfo(id);
+        WrcAirrouteInfo airrouteInfo =  wrcSailPlanService.getPlanInfo(id);
         WrcAirrouteFeeDetail feeDetail = wrcSailPlanService.getFeeInfo(id);
-        WrcAirrouteFeatureDetail featureDetail = wrcSailPlanService.getFeatureInfo(id);
+        List<WrcAirrouteFeatureDetail> featureList = wrcSailPlanService.getFeatureInfo(id);
         List<WrcAirrouteFlowDetail> flowList = wrcSailPlanService.getFlowList(id);
 
+        String keyWord = airrouteInfo.getKeyWrod();
+        String[] keyWordArr = keyWord.split(",");
+
+        WrcDestinationInfo destInfo = wrcDestinationService.getDestinationInfoById(airrouteInfo.getDestinationId());
 
         mav.setViewName("planDetail");
+        mav.addObject("airrouteInfo",airrouteInfo);
+        mav.addObject("keyWordArr",keyWordArr);
+        mav.addObject("feeDetail",feeDetail);
+        mav.addObject("featureList",featureList);
+        mav.addObject("flowList",flowList);
+        mav.addObject("destInfo",destInfo);
+
         return mav;
     }
 }

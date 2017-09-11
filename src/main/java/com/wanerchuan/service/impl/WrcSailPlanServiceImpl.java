@@ -3,7 +3,6 @@ package com.wanerchuan.service.impl;
 import com.wanerchuan.dao.defined.WrcSailPlanDao;
 import com.wanerchuan.dao.generation.WrcAirrouteInfoMapper;
 import com.wanerchuan.domain.defined.Page;
-import com.wanerchuan.domain.defined.WrcAirrouteVO;
 import com.wanerchuan.domain.generation.WrcAirrouteFeatureDetail;
 import com.wanerchuan.domain.generation.WrcAirrouteFeeDetail;
 import com.wanerchuan.domain.generation.WrcAirrouteFlowDetail;
@@ -35,10 +34,6 @@ public class WrcSailPlanServiceImpl implements WrcSailPlanService {
         return this.wrcSailPlanDao.queryPlanNum(page);
     }
 
-    public WrcAirrouteVO getSailPlanInfo(String id) {
-        return this.wrcSailPlanDao.getSailPlanInfo(id);
-    }
-
     public WrcAirrouteInfo getPlanInfo(String id) {
         return this.wrcAirrouteInfoMapper.selectByPrimaryKey(id);
     }
@@ -47,7 +42,7 @@ public class WrcSailPlanServiceImpl implements WrcSailPlanService {
         return this.wrcSailPlanDao.getFeeInfo(airrouteId) ;
     }
 
-    public WrcAirrouteFeatureDetail getFeatureInfo(String airrouteId) {
+    public List<WrcAirrouteFeatureDetail> getFeatureInfo(String airrouteId) {
         return this.wrcSailPlanDao.getFeatureInfo(airrouteId);
     }
 
