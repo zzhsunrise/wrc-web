@@ -19,6 +19,8 @@ public class WrcPic {
 
     private String picUrl;
 
+    private String albumId;
+
     public String getId() {
         return id;
     }
@@ -81,5 +83,13 @@ public class WrcPic {
 
     public void setPicUrl(String picUrl) {
         this.picUrl = picUrl == null ? null : picUrl.trim();
+    }
+
+    public String getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(String albumId) {
+        this.albumId = albumId;
     }
 }

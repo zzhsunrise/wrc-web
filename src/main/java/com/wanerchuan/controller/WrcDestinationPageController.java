@@ -1,10 +1,15 @@
 package com.wanerchuan.controller;
 
+import com.wanerchuan.domain.defined.Constants;
 import com.wanerchuan.domain.defined.Page;
+import com.wanerchuan.domain.generation.WrcAlbum;
 import com.wanerchuan.domain.generation.WrcBoatInfo;
 import com.wanerchuan.domain.generation.WrcDestinationInfo;
+import com.wanerchuan.domain.generation.WrcPic;
+import com.wanerchuan.service.WrcAlbumService;
 import com.wanerchuan.service.WrcBoatInfoService;
 import com.wanerchuan.service.WrcDestinationService;
+import com.wanerchuan.service.WrcPicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,11 +30,19 @@ public class WrcDestinationPageController {
     private WrcDestinationService wrcDestinationService;
     @Autowired
     private WrcBoatInfoService wrcBoatInfoService;
+    @Autowired
+    private WrcPicService wrcPicService;
+    @Autowired
+    private WrcAlbumService wrcAlbumService;
 
     @RequestMapping("/info")
     public ModelAndView toInfoPage(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
+        List<WrcDestinationInfo> destList = wrcDestinationService.getTopDestList(5);
+        List<WrcAlbum> albumList = wrcAlbumService.getAlbumByfid(Constants.ALBUM_DEST_CODE);
         mav.setViewName("destination");
+        mav.addObject("destList",destList);
+        mav.addObject("albumList",albumList);
         return mav;
     }
 
@@ -47,11 +60,13 @@ public class WrcDestinationPageController {
         page.setCurrentPage(1);
         page.setPageSize(3);
         List<WrcBoatInfo> boatInfoList = wrcBoatInfoService.queryALLBoatInfoList(page);
-
+        //获取图片信息
+        List<WrcPic> destPicList = wrcPicService.getPicListByAlbumId(destInfo.getAlbumId());
 
         mav.setViewName("destinationDetail");
         mav.addObject("boatList",boatInfoList);
         mav.addObject("DestInfo",destInfo);
+        mav.addObject("destPicList",destPicList);
         mav.addObject("keyWordArr",keyWordArr);
         return mav;
     }

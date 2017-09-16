@@ -10,9 +10,10 @@
     <result column="pic_name" jdbcType="VARCHAR" property="picName" />
     <result column="pic_intro" jdbcType="VARCHAR" property="picIntro" />
     <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
+    <result column="album_id" jdbcType="VARCHAR" property="albumId" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, gmt_created, gmt_modified, created_by, modified_by, pic_name, pic_intro, pic_url
+    id, gmt_created, gmt_modified, created_by, modified_by, pic_name, pic_intro, pic_url,album_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -27,10 +28,10 @@
   <insert id="insert" parameterType="com.wanerchuan.domain.generation.WrcPic">
     insert into wrc_pic (id, gmt_created, gmt_modified, 
       created_by, modified_by, pic_name, 
-      pic_intro, pic_url)
+      pic_intro, pic_url,album_id)
     values (#{id,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{picName,jdbcType=VARCHAR}, 
-      #{picIntro,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR})
+      #{picIntro,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR},#{albumId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.wanerchuan.domain.generation.WrcPic">
     insert into wrc_pic
@@ -59,6 +60,9 @@
       <if test="picUrl != null">
         pic_url,
       </if>
+      <if test="albumId != null">
+        album_id
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -84,6 +88,9 @@
       </if>
       <if test="picUrl != null">
         #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="albumId != null">
+        #{albumId,jdbcType=VARCHAR}
       </if>
     </trim>
   </insert>

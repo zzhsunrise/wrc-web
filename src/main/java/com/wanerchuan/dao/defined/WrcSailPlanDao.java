@@ -16,6 +16,7 @@ import java.util.List;
 public interface WrcSailPlanDao {
 
     List<WrcAirrouteInfo> getSailPlanList(Page page);
+
     int queryPlanNum(Page page);
 
     WrcAirrouteFeeDetail getFeeInfo(String airrouteId);

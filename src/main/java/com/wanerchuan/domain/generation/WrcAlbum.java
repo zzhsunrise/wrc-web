@@ -21,6 +21,8 @@ public class WrcAlbum {
 
     private String albumIntro;
 
+    private String albumDirName;
+
     public String getId() {
         return id;
     }
@@ -91,5 +93,13 @@ public class WrcAlbum {
 
     public void setAlbumIntro(String albumIntro) {
         this.albumIntro = albumIntro == null ? null : albumIntro.trim();
+    }
+
+    public String getAlbumDirName() {
+        return albumDirName;
+    }
+
+    public void setAlbumDirName(String albumDirName) {
+        this.albumDirName = albumDirName;
     }
 }

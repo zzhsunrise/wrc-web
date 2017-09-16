@@ -16,4 +16,6 @@ public class Constants {
     public static final String CARIBBCAN ="5";
 
     public static final String BAHAMAS ="6";
+
+    public static final String ALBUM_DEST_CODE ="destination";
 }

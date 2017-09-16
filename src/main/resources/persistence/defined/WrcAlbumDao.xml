@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanerchuan.dao.defined.WrcAlbumDao">
+    <resultMap id="BaseResultMap" type="com.wanerchuan.domain.generation.WrcAlbum">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="modified_by" jdbcType="VARCHAR" property="modifiedBy" />
+        <result column="album_name" jdbcType="VARCHAR" property="albumName" />
+        <result column="fid" jdbcType="VARCHAR" property="fid" />
+        <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
+        <result column="album_intro" jdbcType="VARCHAR" property="albumIntro" />
+        <result column="album_dir_name" javaType="VARCHAR" property="albumDirName"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, gmt_created, gmt_modified, created_by, modified_by, album_name, fid, cover_url,
+        album_intro,album_dir_name
+    </sql>
+    <select id="getAlbumByfid" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM wrc_album
+        WHERE fid =#{VALUE}
+    </select>
+</mapper>

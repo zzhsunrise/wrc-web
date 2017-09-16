@@ -11,10 +11,11 @@
     <result column="fid" jdbcType="VARCHAR" property="fid" />
     <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
     <result column="album_intro" jdbcType="VARCHAR" property="albumIntro" />
+    <result column="album_dir_name" javaType="VARCHAR" property="albumDirName"/>
   </resultMap>
   <sql id="Base_Column_List">
     id, gmt_created, gmt_modified, created_by, modified_by, album_name, fid, cover_url, 
-    album_intro
+    album_intro,album_dir_name
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -29,11 +30,11 @@
   <insert id="insert" parameterType="com.wanerchuan.domain.generation.WrcAlbum">
     insert into wrc_album (id, gmt_created, gmt_modified, 
       created_by, modified_by, album_name, 
-      fid, cover_url, album_intro
+      fid, cover_url, album_intro,album_dir_name
       )
     values (#{id,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{albumName,jdbcType=VARCHAR}, 
-      #{fid,jdbcType=VARCHAR}, #{coverUrl,jdbcType=VARCHAR}, #{albumIntro,jdbcType=VARCHAR}
+      #{fid,jdbcType=VARCHAR}, #{coverUrl,jdbcType=VARCHAR}, #{albumIntro,jdbcType=VARCHAR},#{albumDirName,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.wanerchuan.domain.generation.WrcAlbum">

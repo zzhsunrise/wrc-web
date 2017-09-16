@@ -94,7 +94,7 @@
       <li>游玩行程</li>
       <li>报名相关</li>
     </ul>
-    <div class="main-content">
+    <div class="main-content on">
       <c:forEach var="featureDetail" items="${featureList}">
       <h2 class="main-title">${featureDetail.featureName}</h2>
       ${featureDetail.featureContext}
@@ -168,9 +168,8 @@
     <h2 class="adv">推荐自由行</h2>
     <a href="" target="_blank" class="free-list new">
       <img src="<%=basePath%>/images/planListDetail/data/data12.jpg" alt="">
-      <p>【大溪地】自由行 快艇海豚 百年茶园 23色土庄园四驱车</p>
+      <p>【${sailPlan.destinationId}】${sailPlan.airrouteName}</p>
       <div class="price">
-        <span>￥630~700 / 人起</span>
         <ul>
           <li class="chuanpiao"></li>
           <li class="chuanpiao2"></li>

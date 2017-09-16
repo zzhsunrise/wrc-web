@@ -68,6 +68,14 @@ public class WrcSailPlanController {
 
         WrcDestinationInfo destInfo = wrcDestinationService.getDestinationInfoById(airrouteInfo.getDestinationId());
 
+        Page page = new Page();
+        page.setPageSize(1);
+        page.setDestId(destInfo.getId());
+        List<WrcAirrouteInfo> sailPlanList = wrcSailPlanService.getSailPlanList(page);
+        if(sailPlanList.size()==1){
+            mav.addObject("sailPlan",sailPlanList.get(0));
+        }
+
         mav.setViewName("planDetail");
         mav.addObject("airrouteInfo",airrouteInfo);
         mav.addObject("keyWordArr",keyWordArr);

@@ -50,153 +50,63 @@
 <!-- content -->
 <div class="swiper-container content">
   <div class="swiper-wrapper">
-    <div class="swiper-slide" data-src="<%=basePath%>/images/destination/data/data02.jpg">
-      <div class="main">
-        <h2>大溪地（Tahiti）</h2>
-        <p>大溪地，是法属波利尼西亚向风群岛中的最大岛屿，位于南太平洋。这里四季温暖如春、物产丰富。居民称自己为“上帝的人”，外国人则认为这里是“最接近天堂的地方”。 是法属波利尼西亚向风群岛中的最大岛屿，位于南太平洋。这里四季温暖如春、物产丰富。居民称自己为“上帝的人”，外国人则认为这里是“最接近天堂的地方”</p>
-        <div class="heart">
-          <div class="heartList">
-            <span>推荐指数</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+    <c:forEach var="destInfo" items="${destList}">
+      <div class="swiper-slide" data-src="
+              <c:forEach var="albumInfo" items="${albumList}">
+                <c:if test="${destInfo.albumId != albumInfo.id}">
+                  <%=basePath%>${albumInfo.coverUrl}
+                </c:if>
+              </c:forEach>
+              ">
+        <div class="main">
+          <h2>${destInfo.destinationCnName}（${destInfo.destinationEnName}）</h2>
+          <p>${destInfo.destinationIntro}</p>
+          <div class="heart">
+            <div class="heartList">
+              <span>推荐指数</span>
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="heartList">
+              <span>气候</span>
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="half"></li>
+              </ul>
+            </div>
+            <div class="heartList">
+              <span>人文</span>
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="heartList">
+              <span>航海游玩</span>
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
           </div>
-          <div class="heartList">
-            <span>气候</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li class="half"></li>
-            </ul>
-          </div>
-          <div class="heartList">
-            <span>人文</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="heartList">
-            <span>航海游玩</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
+          <a target="blank" class="more" href="<%=path%>/destination/detail?id=${destInfo.id}">查看详情</a>
         </div>
-        <a target="blank" class="more" href="<%=path%>/destination/detail?id=1">查看详情</a>
       </div>
-    </div>
-    <div class="swiper-slide" data-src="<%=basePath%>/images/destination/data/data02.jpg">
-      <div class="main">
-        <h2>大溪地（Tahiti）</h2>
-        <p>大溪地，是法属波利尼西亚向风群岛中的最大岛屿，位于南太平洋。这里四季温暖如春、物产丰富。居民称自己为“上帝的人”，外国人则认为这里是“最接近天堂的地方”。 是法属波利尼西亚向风群岛中的最大岛屿，位于南太平洋。这里四季温暖如春、物产丰富。居民称自己为“上帝的人”，外国人则认为这里是“最接近天堂的地方”</p>
-        <div class="heart">
-          <div class="heartList">
-            <span>推荐指数</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="heartList">
-            <span>气候</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="heartList">
-            <span>人文</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="heartList">
-            <span>航海游玩</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-        </div>
-        <a target="blank" class="more" href="<%=path%>/destination/detail?id=1">查看详情</a>
-      </div>
-    </div>
-    <div class="swiper-slide" data-src="<%=basePath%>/images/destination/data/data02.jpg">
-      <div class="main">
-        <h2>古巴（Tahiti）</h2>
-        <p>大溪地，是法属波利尼西亚向风群岛中的最大岛屿，位于南太平洋。这里四季温暖如春、物产丰富。居民称自己为“上帝的人”，外国人则认为这里是“最接近天堂的地方”。 是法属波利尼西亚向风群岛中的最大岛屿，位于南太平洋。这里四季温暖如春、物产丰富。居民称自己为“上帝的人”，外国人则认为这里是“最接近天堂的地方”</p>
-        <div class="heart">
-          <div class="heartList">
-            <span>推荐指数</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="heartList">
-            <span>气候</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="heartList">
-            <span>人文</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="heartList">
-            <span>航海游玩</span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-        </div>
-        <a target="blank" class="more" href="<%=path%>/destination/detail?id=1">查看详情</a>
-      </div>
-    </div>
+    </c:forEach>
   </div>
 </div>
 <div class="page-banner">

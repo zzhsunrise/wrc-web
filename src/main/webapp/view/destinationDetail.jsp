@@ -55,24 +55,11 @@
       <div class="swi-nav">
         <div class="swiper-container pagenav">
           <div class="swiper-wrapper">
-            <a class="swiper-slide">
-              <img src="<%=basePath%>/images/destinationDetail/data/data00.jpg" alt="">
-            </a>
-            <a class="swiper-slide">
-              <img src="<%=basePath%>/images/destinationDetail/data/data02.jpg" alt="">
-            </a>
-            <a class="swiper-slide">
-              <img src="<%=basePath%>/images/destinationDetail/data/data03.jpg" alt="">
-            </a>
-            <a class="swiper-slide">
-              <img src="<%=basePath%>/images/destinationDetail/data/data01.jpg" alt="">
-            </a>
-            <a class="swiper-slide">
-              <img src="<%=basePath%>/images/destinationDetail/data/data02.jpg" alt="">
-            </a>
-            <a class="swiper-slide">
-              <img src="<%=basePath%>/images/destinationDetail/data/data03.jpg" alt="">
-            </a>
+            <c:forEach var="destPic" items="${destPicList}" begin="0" end="7">
+              <a class="swiper-slide">
+                <img src="<%=basePath%>${destPic.picUrl}" alt="">
+              </a>
+            </c:forEach>
           </div>
         </div>
       </div>
@@ -92,24 +79,70 @@
   <div class="wrap">
     <h2><span>${DestInfo.destinationCnName} ·人文介绍</span></h2>
     <div class="main">
+      <c:if test="${DestInfo.weather!=null}">
       <div class="main-list">
-        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data05.png" alt=""></div>
+        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data05.png" alt="气候"></div>
         <div class="p">
           ${DestInfo.weather}
         </div>
       </div>
+      </c:if>
+      <c:if test="${DestInfo.exitEntry!=null}">
       <div class="main-list">
-        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data05.png" alt=""></div>
+        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data05.png" alt="出入境"></div>
         <div class="p">
           ${DestInfo.exitEntry}
         </div>
       </div>
+      </c:if>
+      <c:if test="${DestInfo.messageMode!=null}">
       <div class="main-list">
-        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data06.png" alt=""></div>
+        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data06.png" alt="通讯"></div>
         <div class="p">
           ${DestInfo.messageMode}
         </div>
       </div>
+      </c:if>
+      <c:if test="${DestInfo.trade!=null}">
+        <div class="main-list">
+          <div class="img f-l"><img src="<%=basePath%>/images/sprite/data07.png" alt=""></div>
+          <div class="p">
+              ${DestInfo.trade}
+          </div>
+        </div>
+      </c:if>
+      <c:if test="${DestInfo.medicalAdvice!=null}">
+      <div class="main-list">
+        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data08.png" alt="健康资讯"></div>
+        <div class="p">
+          ${DestInfo.medicalAdvice}
+        </div>
+      </div>
+      </c:if>
+      <c:if test="${DestInfo.usefulAdvice!=null}">
+        <div class="main-list">
+          <div class="img f-l"><img src="<%=basePath%>/images/sprite/data09.png" alt="实用资讯"></div>
+          <div class="p">
+              ${DestInfo.usefulAdvice}
+          </div>
+        </div>
+      </c:if>
+      <c:if test="${DestInfo.howToArrived!=null}">
+        <div class="main-list">
+          <div class="img f-l"><img src="<%=basePath%>/images/sprite/data10.png" alt="如何到达那里"></div>
+          <div class="p">
+              ${DestInfo.howToArrived}
+          </div>
+        </div>
+      </c:if>
+      <c:if test="${DestInfo.publicUtility!=null}">
+        <div class="main-list">
+          <div class="img f-l"><img src="<%=basePath%>/images/sprite/data11.png" alt="码头设施服务"></div>
+          <div class="p">
+              ${DestInfo.publicUtility}
+          </div>
+        </div>
+      </c:if>
     </div>
   </div>
 </div>

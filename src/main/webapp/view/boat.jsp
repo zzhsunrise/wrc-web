@@ -35,7 +35,7 @@
 <!-- 头部 END -->
 <!-- title -->
 <div class="title">
-    <h2>关于我们</h2>
+    <h2>不同的帆船</h2>
     <ul>
         <li style="background: #8e5971"><a target="_blank" href="<%=path%>/diff/airroute">不同的航线</a></li>
         <li style="background: #3f9ab1"><a target="_blank" href="<%=path%>/boat/info">不同的帆船</a></li>
@@ -47,7 +47,7 @@
 <!-- 位置 -->
 <div class="wrap">
     <div class="position-nav">
-        <span>当前位置 : 首页 >> 关于我们 >> </span>
+        <span>当前位置 : 首页 >> 不同的帆船 >> </span>
         <em>不同的帆船</em>
     </div>
 </div>
