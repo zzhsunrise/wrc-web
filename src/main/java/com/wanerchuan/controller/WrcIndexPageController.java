@@ -53,12 +53,4 @@ public class WrcIndexPageController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = "gallery")
-    public ModelAndView toGalleryPage(HttpServletRequest request){
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("gallery");
-        return mav;
-    }
-
-
 }

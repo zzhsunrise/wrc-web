@@ -21,7 +21,7 @@
 <!-- 头部 -->
 <div class="top">
   <div class="wrap">
-    <h1 class="f-l"><img src="<%=basePath%>/images/sprite/logo.png" alt=""></h1>
+    <h1 class="f-l"><a  target="_blank" href="<%=path%>/index" alt=""/></h1>
     <ul class="f-r">
       <li><a target="_blank" href="<%=path%>/index">首页</a></li>
       <li><a target="_blank" href="<%=path%>/aboutUs">关于我们</a></li>
@@ -37,10 +37,10 @@
 <div class="title">
   <h2>${boatInfo.boatName}</h2>
   <ul>
-    <li style="background: #8e5971"><a target="_blank" href="aboutusAirroute.html">不同的航线</a></li>
-    <li style="background: #3f9ab1"><a target="_blank" href="aboutusBoat.html">不同的帆船</a></li>
-    <li style="background: #664fb9"><a target="_blank" href="aboutusTeam.html">不同的团队</a></li>
-    <li style="background: #01955e"><a target="_blank" href="aboutusCulture.html">不同的文化</a></li>
+    <li style="background: #8e5971"><a target="_blank" href="<%=path%>/diff/airroute">不同的航线</a></li>
+    <li style="background: #3f9ab1"><a target="_blank" href="<%=path%>/boat/info">不同的帆船</a></li>
+    <li style="background: #664fb9"><a target="_blank" href="<%=path%>/diff/teams">不同的团队</a></li>
+    <li style="background: #01955e"><a target="_blank" href="<%=path%>/diff/culture">不同的文化</a></li>
   </ul>
 </div>
 <!-- title END-->
@@ -57,21 +57,9 @@
   <div class="f-l">
     <div class="showImg"><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></div>
     <ul class="imgList">
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
-      <li><img src="<%=basePath%>/images/aboutusBoatDetail/data/data01.jpg" alt=""></li>
+      <c:forEach var="picInfo" items="${picList}">
+        <li><img src="<%=basePath%>/${picInfo.picUrl}" alt=""></li>
+      </c:forEach>
     </ul>
   </div>
   <div class="f-r">

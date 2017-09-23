@@ -11,7 +11,7 @@
         <result column="fid" jdbcType="VARCHAR" property="fid" />
         <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
         <result column="album_intro" jdbcType="VARCHAR" property="albumIntro" />
-        <result column="album_dir_name" javaType="VARCHAR" property="albumDirName"/>
+        <result column="album_dir_name" jdbcType="VARCHAR" property="albumDirName"/>
     </resultMap>
     <sql id="Base_Column_List">
         id, gmt_created, gmt_modified, created_by, modified_by, album_name, fid, cover_url,
@@ -21,6 +21,11 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM wrc_album
-        WHERE fid =#{VALUE}
+        WHERE fid =#{value}
+    </select>
+    <select id="getAllAlbum" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM wrc_album
     </select>
 </mapper>

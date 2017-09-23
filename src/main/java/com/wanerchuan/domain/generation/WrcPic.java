@@ -21,6 +21,8 @@ public class WrcPic {
 
     private String albumId;
 
+    private String picOrder;
+
     public String getId() {
         return id;
     }
@@ -91,5 +93,13 @@ public class WrcPic {
 
     public void setAlbumId(String albumId) {
         this.albumId = albumId;
+    }
+
+    public String getPicOrder() {
+        return picOrder;
+    }
+
+    public void setPicOrder(String picOrder) {
+        this.picOrder = picOrder;
     }
 }

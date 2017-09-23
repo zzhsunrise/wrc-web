@@ -20,11 +20,12 @@
         <result column="public_utility" jdbcType="VARCHAR" property="publicUtility" />
         <result column="album_id" jdbcType="VARCHAR" property="albumId" />
         <result column="key_word" jdbcType="VARCHAR" property="keyWord" />
+        <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
     </resultMap>
     <sql id="Base_Column_List">
         id, gmt_created, gmt_modified, created_by, modified_by, destination_cn_name, destination_en_name,
         destination_intro, weather, exit_entry, message_mode, trade, medical_advice, useful_advice,
-        how_to_arrived, public_utility, album_id, key_word
+        how_to_arrived, public_utility, album_id, key_word,area_code
     </sql>
 
     <select id="getTopDestList" resultMap="BaseResultMap">

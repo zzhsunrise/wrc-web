@@ -20,4 +20,9 @@ public class WrcAlbumServiceImpl implements WrcAlbumService {
     public List<WrcAlbum> getAlbumByfid(String fid) {
         return this.wrcAlbumDao.getAlbumByfid(fid);
     }
+
+    @Override
+    public List<WrcAlbum> getALLAlbum() {
+        return this.wrcAlbumDao.getAllAlbum();
+    }
 }

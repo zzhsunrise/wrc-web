@@ -10,4 +10,6 @@ import java.util.List;
 public interface WrcAlbumService {
 
     List<WrcAlbum> getAlbumByfid(String fid);
+
+    List<WrcAlbum> getALLAlbum();
 }

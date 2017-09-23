@@ -127,7 +127,7 @@ CREATE TABLE wrc_album(
   created_by VARCHAR(32) COMMENT '创建人',
   modified_by VARCHAR(32) COMMENT '修改人',
   id VARCHAR(36) NOT NULL COMMENT '主键id,作为@BizId',
-  album_name VARCHAR(36) NOT NULL COMMENT '修改人',
+  album_name VARCHAR(36) NOT NULL COMMENT '相册名',
   fid VARCHAR(36) DEFAULT NULL COMMENT '父级id',
   cover_url VARCHAR(150) DEFAULT NULL COMMENT '封面图片',
   album_intro VARCHAR(255) DEFAULT NULL COMMENT '相册简介',
@@ -146,5 +146,6 @@ CREATE TABLE wrc_pic(
   pic_name VARCHAR(36) NOT NULL COMMENT '图片名称',
   pic_intro VARCHAR(255) DEFAULT NULL COMMENT '图片描述',
   pic_url VARCHAR(150) NOT NULL COMMENT '图片链接',
+  pic_order int(7) DEFAULT 0 COMMENT '图片排序字段'
   PRIMARY KEY (id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='wrc-图片表';

@@ -2,6 +2,7 @@ package com.wanerchuan.controller;
 
 import com.wanerchuan.domain.defined.Constants;
 import com.wanerchuan.domain.defined.Page;
+import com.wanerchuan.domain.defined.WrcAirrouteVO;
 import com.wanerchuan.domain.generation.WrcAlbum;
 import com.wanerchuan.domain.generation.WrcBoatInfo;
 import com.wanerchuan.domain.generation.WrcDestinationInfo;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,11 +64,13 @@ public class WrcDestinationPageController {
         List<WrcBoatInfo> boatInfoList = wrcBoatInfoService.queryALLBoatInfoList(page);
         //获取图片信息
         List<WrcPic> destPicList = wrcPicService.getPicListByAlbumId(destInfo.getAlbumId());
-
+        //获取活动信息
+        List<WrcAirrouteVO> sailPlanList = new ArrayList<WrcAirrouteVO>();
         mav.setViewName("destinationDetail");
         mav.addObject("boatList",boatInfoList);
         mav.addObject("DestInfo",destInfo);
         mav.addObject("destPicList",destPicList);
+        mav.addObject("sailPlanList",sailPlanList);
         mav.addObject("keyWordArr",keyWordArr);
         return mav;
     }

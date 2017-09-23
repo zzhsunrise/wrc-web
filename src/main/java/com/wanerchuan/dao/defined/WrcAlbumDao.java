@@ -12,4 +12,6 @@ import java.util.List;
 public interface WrcAlbumDao {
 
     List<WrcAlbum> getAlbumByfid(String fid);
+
+    List<WrcAlbum> getAllAlbum();
 }

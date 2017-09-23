@@ -39,6 +39,8 @@ public class WrcDestinationInfo {
 
     private String keyWord;
 
+    private String areaCode;
+
     public String getId() {
         return id;
     }
@@ -181,5 +183,13 @@ public class WrcDestinationInfo {
 
     public void setKeyWord(String keyWord) {
         this.keyWord = keyWord == null ? null : keyWord.trim();
+    }
+
+    public String getAreaCode() {
+        return areaCode;
+    }
+
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
     }
 }

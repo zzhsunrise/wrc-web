@@ -22,7 +22,7 @@
 <!-- 头部 -->
 <div class="top">
   <div class="wrap">
-    <h1 class="f-l"><img src="<%=basePath%>/images/sprite/logo.png" alt=""></h1>
+    <h1 class="f-l"><a  target="_blank" href="<%=path%>/index" alt=""/></h1>
     <ul class="f-r">
       <li><a target="_blank" href="<%=path%>/index">首页</a></li>
       <li><a target="_blank" href="<%=path%>/aboutUs">关于我们</a></li>
@@ -51,13 +51,7 @@
 <div class="swiper-container content">
   <div class="swiper-wrapper">
     <c:forEach var="destInfo" items="${destList}">
-      <div class="swiper-slide" data-src="
-              <c:forEach var="albumInfo" items="${albumList}">
-                <c:if test="${destInfo.albumId != albumInfo.id}">
-                  <%=basePath%>${albumInfo.coverUrl}
-                </c:if>
-              </c:forEach>
-              ">
+      <div class="swiper-slide" data-src="<%=basePath%>/images/destination/data/data02.jpg">
         <div class="main">
           <h2>${destInfo.destinationCnName}（${destInfo.destinationEnName}）</h2>
           <p>${destInfo.destinationIntro}</p>

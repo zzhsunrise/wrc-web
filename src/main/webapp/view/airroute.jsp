@@ -23,7 +23,7 @@
 <!-- 头部 -->
 <div class="top">
   <div class="wrap">
-    <h1 class="f-l"><img src="<%=basePath%>/images/sprite/logo.png" alt=""></h1>
+    <h1 class="f-l"><a  target="_blank" href="<%=path%>/index" alt=""/></h1>
     <ul class="f-r">
       <li><a target="_blank" href="<%=path%>/index">首页</a></li>
       <li><a target="_blank" href="<%=path%>/aboutUs">关于我们</a></li>

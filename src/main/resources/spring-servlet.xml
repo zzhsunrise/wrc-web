@@ -19,6 +19,12 @@
                      </list>
               </property>
        </bean>
+       <mvc:annotation-driven>
+              <mvc:message-converters>
+                     <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+                     <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+              </mvc:message-converters>
+       </mvc:annotation-driven>
        <!-- 默认的注解映射的支持 -->
        <mvc:annotation-driven >
               <mvc:message-converters register-defaults="true">

@@ -23,7 +23,7 @@
 <div class="top">
   <div class="wrap">
     <a href="<%=path%>/index">
-      <h1 class="f-l"><img src="<%=basePath%>/images/sprite/logo.png" alt=""></h1>
+      <h1 class="f-l"><a  target="_blank" href="<%=path%>/index" alt=""/></h1>
     </a>
     <ul class="f-r">
       <li><a target="_blank" href="<%=path%>/index">首页</a></li>
@@ -81,7 +81,10 @@
     <div class="main">
       <c:if test="${DestInfo.weather!=null}">
       <div class="main-list">
-        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data05.png" alt="气候"></div>
+        <div class="img f-l">
+          <img src="<%=basePath%>/images/sprite/weather.png" alt="气候">
+          <p>气 候</p>
+        </div>
         <div class="p">
           ${DestInfo.weather}
         </div>
@@ -89,15 +92,22 @@
       </c:if>
       <c:if test="${DestInfo.exitEntry!=null}">
       <div class="main-list">
-        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data05.png" alt="出入境"></div>
+        <div class="img f-l">
+          <img src="<%=basePath%>/images/sprite/data05.png" alt="出入境">
+          <p>出入境</p>
+        </div>
         <div class="p">
           ${DestInfo.exitEntry}
+
         </div>
       </div>
       </c:if>
       <c:if test="${DestInfo.messageMode!=null}">
       <div class="main-list">
-        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data06.png" alt="通讯"></div>
+        <div class="img f-l">
+          <img src="<%=basePath%>/images/sprite/data06.png" alt="通讯">
+          <p>通 讯</p>
+        </div>
         <div class="p">
           ${DestInfo.messageMode}
         </div>
@@ -105,7 +115,10 @@
       </c:if>
       <c:if test="${DestInfo.trade!=null}">
         <div class="main-list">
-          <div class="img f-l"><img src="<%=basePath%>/images/sprite/data07.png" alt=""></div>
+          <div class="img f-l">
+            <img src="<%=basePath%>/images/sprite/data07.png" alt="">
+            <p>货 币</p>
+          </div>
           <div class="p">
               ${DestInfo.trade}
           </div>
@@ -113,7 +126,10 @@
       </c:if>
       <c:if test="${DestInfo.medicalAdvice!=null}">
       <div class="main-list">
-        <div class="img f-l"><img src="<%=basePath%>/images/sprite/data08.png" alt="健康资讯"></div>
+        <div class="img f-l">
+          <img src="<%=basePath%>/images/sprite/data08.png" alt="健康资讯">
+          <p>健康资讯</p>
+        </div>
         <div class="p">
           ${DestInfo.medicalAdvice}
         </div>
@@ -121,15 +137,23 @@
       </c:if>
       <c:if test="${DestInfo.usefulAdvice!=null}">
         <div class="main-list">
-          <div class="img f-l"><img src="<%=basePath%>/images/sprite/data09.png" alt="实用资讯"></div>
+          <div class="img f-l">
+            <img src="<%=basePath%>/images/sprite/data09.png" alt="实用资讯">
+            <p>实用资讯</p>
+          </div>
           <div class="p">
               ${DestInfo.usefulAdvice}
+
           </div>
         </div>
       </c:if>
       <c:if test="${DestInfo.howToArrived!=null}">
         <div class="main-list">
-          <div class="img f-l"><img src="<%=basePath%>/images/sprite/data10.png" alt="如何到达那里"></div>
+          <div class="img f-l">
+            <img src="<%=basePath%>/images/sprite/data10.png" alt="如何到达那里">
+            <p></p>
+            <p>如何到达那里</p>
+          </div>
           <div class="p">
               ${DestInfo.howToArrived}
           </div>
@@ -137,7 +161,10 @@
       </c:if>
       <c:if test="${DestInfo.publicUtility!=null}">
         <div class="main-list">
-          <div class="img f-l"><img src="<%=basePath%>/images/sprite/data11.png" alt="码头设施服务"></div>
+          <div class="img f-l">
+            <img src="<%=basePath%>/images/sprite/data11.png" alt="码头设施服务">
+            <p>码头设施服务</p>
+          </div>
           <div class="p">
               ${DestInfo.publicUtility}
           </div>
@@ -148,54 +175,60 @@
 </div>
 <!-- 介绍 END-->
 <!-- 自由行 -->
-<div class="free">
-  <div class="wrap">
-    <h2 class="sub-title">
-      <span>自由行</span>
-      <a href="">共12个行程</a>
-    </h2>
-    <div class="free-main">
-      <div class="free-list">
-        <img src="<%=basePath%>/images/destinationDetail/data/data12.jpg" alt="">
-        <p>【大溪地】自由行 快艇海豚 百年茶园 23色土庄园四驱车</p>
-        <div class="price yellow">￥630~700 / 人起</div>
-      </div>
-      <div class="free-list">
-        <img src="<%=basePath%>/images/destinationDetail/data/data14.jpg" alt="">
-        <p>【大溪地】自由行 快艇海豚 百年茶园 23色土庄园四驱车</p>
-        <div class="price yellow">￥630~700 / 人起</div>
-      </div>
-      <div class="free-list">
-        <img src="<%=basePath%>/images/destinationDetail/data/data13.jpg" alt="">
-        <p>【大溪地】自由行 快艇海豚 百年茶园 23色土庄园四驱车</p>
-        <div class="price yellow">￥630~700 / 人起</div>
+<c:if test="${sailPlanList.size()>0}">
+  <div class="free">
+    <div class="wrap">
+      <h2 class="sub-title">
+        <span>自由行</span>
+        <a href="">共12个行程</a>
+      </h2>
+      <div class="free-main">
+        <div class="free-list">
+          <img src="<%=basePath%>/images/destinationDetail/data/data12.jpg" alt="">
+          <p>【大溪地】自由行 快艇海豚 百年茶园 23色土庄园四驱车</p>
+          <div class="price yellow">￥630~700 / 人起</div>
+        </div>
+        <div class="free-list">
+          <img src="<%=basePath%>/images/destinationDetail/data/data14.jpg" alt="">
+          <p>【大溪地】自由行 快艇海豚 百年茶园 23色土庄园四驱车</p>
+          <div class="price yellow">￥630~700 / 人起</div>
+        </div>
+        <div class="free-list">
+          <img src="<%=basePath%>/images/destinationDetail/data/data13.jpg" alt="">
+          <p>【大溪地】自由行 快艇海豚 百年茶园 23色土庄园四驱车</p>
+          <div class="price yellow">￥630~700 / 人起</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</c:if>
+
 <!-- 自由行 END-->
 <!-- 帆船 -->
-<div class="boat">
-  <div class="wrap">
-    <h2 class="sub-title boat-bg">
-      <span>帆船</span>
-      <a href="<%=basePath%>/boat/info">更多</a>
-    </h2>
-    <div class="free-main">
-      <c:forEach var="boat" items="${boatList}">
-        <div class="free-list">
-          <img src="<%=basePath%>/images/destinationDetail/data/data12.jpg" alt="${boat.boatName}">
-          <h2>${boat.boatName}</h2>
-          <p class="price">所属地：${boat.destId}</p>
-          <p><span>品牌：${boat.boatBrand}</span></p>
-          <p><span>型号：${boat.boatType}</span></p>
-          <a href="<%=basePath%>/boat/detail?id=${boat.id}">查看详情</a>
-        </div>
-      </c:forEach>
+<c:if test="${boatList.size()>0}">
+  <div class="boat">
+    <div class="wrap">
+      <h2 class="sub-title boat-bg">
+        <span>帆船</span>
+        <a href="<%=basePath%>/boat/info">更多</a>
+      </h2>
+      <div class="free-main">
+        <c:forEach var="boat" items="${boatList}">
+          <div class="free-list">
+            <img src="<%=basePath%>/images/destinationDetail/data/data12.jpg" alt="${boat.boatName}">
+            <h2>${boat.boatName}</h2>
+            <p class="price">所属地：${boat.destId}</p>
+            <p><span>品牌：${boat.boatBrand}</span></p>
+            <p><span>型号：${boat.boatType}</span></p>
+            <a href="<%=basePath%>/boat/detail?id=${boat.id}">查看详情</a>
+          </div>
+        </c:forEach>
 
+      </div>
     </div>
   </div>
-</div>
+</c:if>
+
 <!-- 帆船 END-->
 <!-- 底部 -->
 <div class="footer">

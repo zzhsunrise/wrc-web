@@ -23,6 +23,4 @@
     <typeAliases>
         <package name="com.wanerchuan.domain"/>
     </typeAliases>
-
-    
 </configuration>

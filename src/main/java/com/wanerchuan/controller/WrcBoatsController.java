@@ -2,7 +2,9 @@ package com.wanerchuan.controller;
 
 import com.wanerchuan.domain.defined.Page;
 import com.wanerchuan.domain.generation.WrcBoatInfo;
+import com.wanerchuan.domain.generation.WrcPic;
 import com.wanerchuan.service.WrcBoatInfoService;
+import com.wanerchuan.service.WrcPicService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ public class WrcBoatsController {
 
     @Autowired
     private WrcBoatInfoService wrcBoatInfoService;
+    @Autowired
+    private WrcPicService wrcPicService;
 
     private int pageSize = 6;
 
@@ -52,9 +56,10 @@ public class WrcBoatsController {
         ModelAndView mav = new ModelAndView();
         String id = request.getParameter("id");
         WrcBoatInfo boatInfo = wrcBoatInfoService.queryBoatInfoById(id);
-
+        List<WrcPic> picList = wrcPicService.getPicListByAlbumId(boatInfo.getAlbumId());
         mav.setViewName("boatDetail");
         mav.addObject("boatInfo",boatInfo);
+        mav.addObject("picList",picList);
         return mav;
     }
 }
